@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Employee Directory</title>
+  <link rel="stylesheet" href="/src/main/resources/static/css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Employee Directory</h1>
+    <div>
+      <input id="search" type="text" placeholder="Search by name or email" oninput="renderEmployees()">
+      <button onclick="toggleFilterSidebar()">Filter</button>
+    </div>
+  </header>
+  <div class="controls">
+    <div>
+      Sort:
+      <select id="sortBy" onchange="renderEmployees()">
+        <option value="">--Select--</option>
+        <option value="firstName">First Name</option>
+        <option value="department">Department</option>
+      </select>
+      Show:
+      <select id="itemsPerPage" onchange="renderEmployees()">
+        <option value="10">10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+      </select>
+    </div>
+    <button class="add-btn" onclick="openForm()">Add Employee</button>
+  </div>
+
+  <div class="main">
+    <div class="employee-list" id="employeeList"></div>
+
+    <aside class="sidebar" id="filterSidebar">
+      <button class="close-sidebar-btn" aria-label="Close Sidebar" onclick="toggleFilterSidebar()">&times;</button>
+      <h3>Filter Employees</h3>
+      <label>First Name:</label>
+      <input type="text" id="filterFirst">
+      <label>Department:</label>
+      <input type="text" id="filterDept">
+      <label>Role:</label>
+      <input type="text" id="filterRole">
+      <button onclick="renderEmployees()">Apply</button>
+      <button onclick="resetFilters()">Reset</button>
+    </aside>
+  </div>
+
+  <footer>
+    &copy; 2025 Employee Directory App. All rights reserved.
+  </footer>
+
+  <div class="overlay" id="overlay" onclick="closeForm()"></div>
+
+<div class="modal" id="employeeModal">
+  <h2 id="formTitle">Add Employee</h2>
+  <input type="hidden" id="empId" />
+  <input type="text" id="firstName" placeholder="First Name" />
+  <input type="text" id="lastName" placeholder="Last Name" />
+
+  <div class="row">
+    <input type="email" id="email" placeholder="Email" />
+    <select id="department">
+      <option value="">Select Department</option>
+      <option value="HR">HR</option>
+      <option value="IT">IT</option>
+      <option value="Finance">Finance</option>
+      <option value="Marketing">Marketing</option>
+      <option value="Operations">Operations</option>
+    </select>
+  </div>
+
+  <select id="role">
+    <option value="">Select Role</option>
+    <option value="Manager">Manager</option>
+    <option value="Developer">Developer</option>
+    <option value="Analyst">Analyst</option>
+    <option value="Designer">Designer</option>
+    <option value="Executive">Executive</option>
+  </select>
+
+  <div class="btn-row">
+    <button onclick="closeForm()">Cancel</button>
+    <button id="saveBtn" onclick="saveEmployee()">Add</button>
+  </div>
+</div>
+
+  <script src="/src/main/resources/static/js/script.js"></script>
+</body>
+</html>
