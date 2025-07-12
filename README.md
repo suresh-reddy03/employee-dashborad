@@ -21,7 +21,6 @@ employee-directory/
 └── README.md                              # Project documentation
 
 
-
 ---
 
 ## 🛠 Setup Instructions
