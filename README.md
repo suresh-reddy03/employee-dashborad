@@ -28,7 +28,7 @@ employee-directory/
 
 1. *Clone this repository*
    bash
-   git clone https://github.com/yourusername/employee-directory.git
+   git clone https://github.com/suresh-reddy03/employee-dashborad
    cd employee-directory
    
 
